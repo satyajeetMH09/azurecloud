@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -25,6 +26,12 @@ public class SpringbootAzuresqlApplication {
 
     @GetMapping("/employees")
     public List<Employee> getEmployees() {
+    	List<Employee> ref=new ArrayList<Employee>();
+    	System.out.println(repository.findAll());
+    	ref=repository.findAll();
+    	for(Employee emp:ref) {
+    		System.out.println(emp.toString());
+    	}
         return repository.findAll();
     }
 
